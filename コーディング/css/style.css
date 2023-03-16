@@ -1,0 +1,2668 @@
+@charset "utf-8";
+
+*{
+	margin:0;
+	padding:0;
+}
+
+
+
+.zen{
+	background-color:#f8f4f1;
+	overflow-x: hidden;
+}
+
+a{
+	text-decoration:none;
+}
+
+img{
+	vertical-align:bottom;
+}
+
+@keyframes fadeRightAnime{
+  from {
+    opacity: 0;
+  transform: translateX(100px);
+  }
+
+  to {
+    opacity: 1;
+  transform: translateX(0);
+  }
+}
+
+@keyframes fadeInAnime{
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeRightAnime{
+  from {
+    opacity: 0;
+  transform: translateX(100px);
+  }
+
+  to {
+    opacity: 1;
+  transform: translateX(0);
+  }
+}
+
+@keyframes fadeInAnime{
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*スクロールに応じてフェードイン（フェードイン前右から）*/
+
+.elementright{
+	opacity: 0;
+	visibility: hidden;
+	transform: translateX(50px);
+	transition: opacity 1s, visibility 1s, transform 1s;
+}
+
+/*スクロールに応じてフェードイン（フェードイン前左から）*/
+
+.elementleft{
+	opacity: 0;
+	visibility: hidden;
+	transform: translateX(-50px);
+	transition: opacity 1s, visibility 1s, transform 1s;
+}
+
+/*スクロールに応じてフェードイン（フェードイン前下から）*/
+
+.elementfront{
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(50px);
+	transition: opacity 1s, visibility 1s, transform 1s;
+}
+
+.elementposition{
+	opacity: 0;
+	visibility: hidden;
+	transform: translateX(0px);
+	transition: opacity 1s, visibility 1s, transform 1s;
+}
+
+/*スクロールに応じてフェードイン（フェードイン後）*/
+
+.is-fadein{
+	opacity: 1;
+	visibility: visible;
+	transform: translateX(0);
+}
+
+@media screen and (max-width:770px) {
+
+
+/*スクロールに応じてフェードイン（フェードイン前右から）*/
+
+.elementright{
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(50px);
+	transition: opacity 1s, visibility 1s, transform 1s;
+}
+
+/*スクロールに応じてフェードイン（フェードイン前左から）*/
+
+.elementleft{
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(50px);
+	transition: opacity 1s, visibility 1s, transform 1s;
+}
+
+/*スクロールに応じてフェードイン（フェードイン前下から）*/
+
+.elementfront{
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(50px);
+	transition: opacity 1s, visibility 1s, transform 1s;
+}
+
+.elementposition{
+	opacity: 0;
+	visibility: hidden;
+	transform: translateX(0px);
+	transition: opacity 1s, visibility 1s, transform 1s;
+}
+	
+/*スクロールに応じてフェードイン（フェードイン後）*/
+
+.is-fadein{
+	opacity: 1;
+	visibility: visible;
+	transform: translateX(0);
+}
+
+}
+
+
+
+
+
+
+.phone_navbotton{
+	display:none;
+}
+
+.phone_nav{
+	display:none;
+}
+
+
+@media screen and (max-width:770px) {
+
+/*ボタンのCSS　クリック前----------------------*/
+
+.phone_navbotton{
+	display:block;
+	position:fixed;
+	width:5vw;
+	height:4vw;
+	z-index:15001;
+	top:2.5vw;
+	right:1.5vw;
+}
+
+.phone_navbotton i{
+	display:block;
+	width:100%;
+	height:2px;
+	background-color:#333;
+	position:absolute;
+	z-index:15001;
+	transition:transform 0.5s, opacity 0.5s;
+}
+
+.phone_navbotton i:nth-child(1){
+	top:0;
+	z-index:15001;
+}
+
+.phone_navbotton i:nth-child(2){
+	top:0;
+	bottom:0;
+	margin:auto;
+	z-index:15001;
+}
+
+.phone_navbotton i:nth-child(3){
+	bottom:0;
+	z-index:15001;
+}
+
+
+/*----------------------------------------------*/
+
+
+/*ボタンのCSS　クリック後.show追加-------------*/
+
+.phone_navbotton.show i:nth-child(1){
+	transform: translateY(2vw) rotate(-45deg);
+	z-index:15001;
+	background-color:white;
+}
+
+.phone_navbotton.show i:nth-child(2){
+	opacity: 0;
+	z-index:15001;
+	background-color:white;
+}
+
+.phone_navbotton.show i:nth-child(3){
+	transform: translateY(-1.58vw) rotate(45deg);
+	z-index:15001;
+	background-color:white;
+}
+
+/*-----------------------------------------------*/
+
+/*メニューリストのCSS---------------------------*/
+
+.phone_nav{
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	opacity:0;
+	
+	/*visibility:hidden;*/
+	transition: opacity 0.5s ease, visibility 0.5s ease;
+	
+	/*animation-name:fadeInAnime;
+	animation-duration:0.5s;*/
+	
+	pointer-events:none;
+	z-index:15000;
+	background-color:#bd6159;
+	width:100%;
+	height:auto;
+	padding:15vw 0 0 10vw;
+	display:block;
+}
+	
+.phone_navmenu{
+	display:grid;
+	grid-template-columns: 40% 40%;
+	list-style:none;
+	padding-right:10vw;
+	column-gap:10%;
+	row-gap:3vw;
+	overflow-y:scroll;
+}
+	
+.phone_navmenu a{
+	color:white;
+	font-size:3.5vw;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	font-weight:500;
+	transition:0.5s;
+}
+	
+.phone-mainnav a{
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:space-evenly;
+	background-color:white;
+	color:#bd6159;
+	height:20vw;
+	border-radius:1vw;
+	transition:0.5s;
+}
+	
+.phone-mainnav a:hover{
+	background-color:rgba(255,255,255,0.7);
+}
+	
+.phone-mainnav img{
+	height:7vw;
+	width:auto;
+}
+	
+.phone-navhover a:hover{
+	color:#ff8a74;
+	transition:0.5s;
+}
+
+.phone_navmenu li{
+	
+	white-space:nowrap;
+}
+	
+	.phone-navhover{
+	padding-bottom:3vw;
+	border-bottom: 0.25vw solid white;
+}
+	
+.phone-mainnavspace{
+	padding-bottom:5vw;
+}
+
+/*-----------------------------------------------*/
+
+/*メニューリストのCSS　クリック後.show追加*/
+
+.phone_nav.show{
+	opacity:1;
+	visibility:visible;
+	z-index:14999;
+	overflow-x: hidden;
+    overflow-y: scroll;
+	display:block;
+	pointer-events:auto;
+}
+
+/*-----------------------------------------------*/
+	
+/*メニューを開いたときにスクロールをさせない------------*/
+	
+.zen.show{
+	overflow: hidden;
+}
+	
+/*-----------------------------------------------*/
+	
+}
+
+
+
+
+
+
+
+
+
+.header-titlelogo{
+	width:12%;
+	height:auto;
+	padding-left:1.5vw;
+	padding-top:1.5vw;
+}
+
+@media screen and (max-width:770px) {
+		
+.header-titlelogo{
+	width:100%;
+	height:auto;
+	padding-left:1.5vw;
+	padding-bottom:1.5vw;
+	background-color:#f8f4f1;
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:500;
+}
+	
+.header-titlelogo a{
+	display:flex;
+	align-items:center;
+}
+
+.header-titlelogo img{
+	width:auto;
+	height:80%;
+}
+
+}
+	
+
+
+.main-area{
+	width:100%;
+}
+
+@media screen and (max-width:770px) {
+
+.main-area{
+	width:100%;
+}
+
+}
+
+
+.head-area{
+
+	height:100%;
+	width:100%;
+	z-index:0;
+}
+
+@media screen and (max-width:770px) {
+
+.head-area{
+	position:relative;
+	height:100%;
+	width:100%;
+	z-index:0;
+	z-index:500;
+}
+
+}
+
+
+.top-imagearea{
+	height:43vw;
+	width:auto;
+	background-image:url("../images/top.jpg");
+	background-size:cover;
+	background-position:top center;
+}
+
+@media screen and (max-width:770px) {
+
+.top-imagearea{
+	height:100vh;
+	width:auto;
+	background-image:url("../images/top.jpg");
+	background-size:cover;
+	background-position:top 4vw left 33%;
+	z-index:500;
+}
+
+}
+
+@media screen and (max-width:770px) {
+
+.top-imagearea a{
+	width:50%;
+	height:6.5vw;
+}
+
+}
+
+
+.banner-box01{
+	width:13vw;
+	height:13vw;
+	background-color:white;
+	border-radius:100%;
+	padding:2px;
+	margin-left:1vw;
+	margin-top:7vw;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	transition:0.5s;
+	transform-origin:0% 0%;
+}
+
+.banner-box01:hover{
+	width:14vw;
+	height:14vw;
+	transition:0.5s;
+	transform-origin:0% 0%;
+}
+
+@media screen and (max-width:770px) {
+
+.banner-box01{
+	display:none;
+}
+
+}
+
+.banner{
+	width:12vw;
+	height:12vw;
+	background-color:white;
+	border-radius:100%;
+	border: solid 0.5vw #bd6159;
+	text-align:center;
+	margin:0 auto;
+	display:flex;
+	flex-direction:column;
+	justify-content:space-around;
+}
+
+
+
+.mes01{
+	color:#bd6159;
+	font-size:1.5vw;
+	font-weight:600;
+	line-height:1vw;
+}
+
+.mes02{
+	color:#bd6159;
+	font-size:1.5vw;
+	font-weight:600;
+	line-height:1vw;
+}
+
+.day{
+	color:#bd6159;
+	font-size:4.25vw;
+	font-weight:700;
+	line-height:5vw;
+}
+
+.banner-box02{
+	width:13vw;
+	height:13vw;
+	background-color:white;
+	border-radius:100%;
+	padding:2px;
+	margin-left:1vw;
+	margin-top:1vw;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	transition:0.5s;
+	transform-origin:0% 0%;
+}
+
+.banner-box02:hover{
+	width:14vw;
+	height:14vw;
+	transition:0.5s;
+	transform-origin:0% 0%;
+}
+
+@media screen and (max-width:770px) {
+
+.banner-box02{
+	display:none;
+}
+
+}
+
+.banner2{
+	width:12vw;
+	height:12vw;
+	background-color:white;
+	border-radius:100%;
+	border: solid 0.5vw #bd6159;
+	text-align:center;
+	margin:0 auto;
+	display:flex;
+	flex-direction:column;
+	justify-content:space-around;
+}
+
+
+.phone-bannerarea{
+	display:none;
+}
+
+/*バナーエリア------------------------------------------------------*/
+
+@media screen and (max-width:770px) {
+
+.phone-bannerarea{
+	display:block;
+}
+
+.banner-boxphone01{
+	width:13vw;
+	height:13vw;
+	background-color:white;
+	border-radius:100%;
+	padding:2px;
+	margin-left:1vw;
+	margin-top:1vw;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	transition:0.5s;
+	transform-origin:0% 0%;
+}
+
+.banner-boxphone01:hover{
+	transition:0.5s;
+	transform-origin:0% 0%;
+	opacity:0.75;
+}
+
+.bannerphone{
+	width:12vw;
+	height:12vw;
+	background-color:white;
+	border-radius:100%;
+	border: solid 0.6vw #bd6159;
+	text-align:center;
+	margin:0 auto;
+	display:flex;
+	flex-direction:column;
+	justify-content:space-around;
+}
+
+
+
+.mesphone01{
+	color:#bd6159;
+	font-size:1.5vw;
+	font-weight:600;
+	line-height:1vw;
+}
+
+.mesphone02{
+	color:#bd6159;
+	font-size:1.5vw;
+	font-weight:600;
+	line-height:1vw;
+}
+
+.dayphone{
+	color:#bd6159;
+	font-size:4.25vw;
+	font-weight:700;
+	line-height:5vw;
+}
+
+.banner-boxphone02{
+	width:13vw;
+	height:13vw;
+	background-color:white;
+	border-radius:100%;
+	padding:2px;
+	margin-left:1vw;
+	margin-top:1vw;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	transition:0.5s;
+	transform-origin:0% 0%;
+}
+
+.banner-boxphone02:hover{
+	transition:0.5s;
+	transform-origin:0% 0%;
+	opacity:0.75;
+}
+
+.bannerphone2{
+	width:12vw;
+	height:12vw;
+	background-color:white;
+	border-radius:100%;
+	border: solid 0.6vw #bd6159;
+	text-align:center;
+	margin:0 auto;
+	display:flex;
+	flex-direction:column;
+	justify-content:space-around;
+}
+	
+.phone-bannerflex{
+	display:flex;
+}
+
+}
+
+/*------------------------------------------------------*/
+
+/*最新情報-----------------------------------------*/
+
+@media screen and (max-width:770px) {
+
+.banner-top{
+	margin-top:10vw;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:center;
+}
+
+.banner-top img{
+	width:50vw;
+	height:auto;
+	margin-bottom:15px;
+}
+
+.banner-bar{
+	width:17vw;
+	height:0.25vw;
+	background-color:#ff8a74;
+}
+
+.banner-topsub h3{
+	font-size:3vw;
+	color:#ff8a74;
+	margin-right:10px;
+	margin-left:10px;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+}
+
+.banner-topsub{
+	display:flex;
+	jusutify-content:center;
+	align-items:center;
+	margin-top:-20px;
+}
+
+.banner-top h2{
+	text-align:center;
+}
+	
+.phone-bannerflex{
+	justify-content:center;
+	margin-top:3vw;
+}
+	
+.banner-boxphone02{
+	width:22vw;
+	height:22vw;
+	margin-left:2.5vw;
+}
+
+.bannerphone2{
+	width:21vw;
+	height:21vw;
+}
+	
+.banner-boxphone01{
+	width:22vw;
+	height:22vw;
+	margin-right:2.5vw;
+}
+
+.bannerphone{
+	width:21vw;
+	height:21vw;
+}
+
+.mesphone01{
+	font-size:2.2vw;
+	line-height:3vw;
+}
+
+.dayphone{
+	font-size:6.5vw;
+	line-height:5.5vw;
+}
+
+.mesphone02{
+	font-size:2.5vw;
+	line-height:4.5vw;
+}
+
+}
+
+/*-------------------------------------------------*/
+
+.sub-menu img{
+	width:25px;
+	height:auto;
+}
+
+.copy h2{
+	font-size:2.5vw;
+	font-weight:300;
+	font-family: 'Noto Serif JP', serif;
+	color:#67686e;
+}
+
+.copy{
+	position:absolute;
+	top:18vw;
+	left:55vw;
+	margin-right:0;
+	margin-left:auto;
+}
+
+@media screen and (max-width:770px){
+
+	.copy{
+		position:absolute;
+		top:65vh;
+		left:15vw;
+}
+
+}
+
+.copy01{
+	background-color:white;
+	height:4vw;
+	width:30vw;
+	text-align:center;
+	margin-bottom:20px;
+	margin-right:0;
+	margin-left:auto;
+}
+
+@media screen and (max-width:770px) {
+
+.copy01{
+	margin-bottom:1.5vw;
+	width:75vw;
+	height:10vw;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+	
+.copy01 h2{
+	font-size:6.5vw;
+}
+
+}
+
+.copy02{
+	background-color:white;
+	height:4vw;
+	width:70%;
+	text-align:center;
+	margin-right:0;
+	margin-left:auto;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
+@media screen and (max-width:770px) {
+
+.copy02{
+	width:55vw;
+	height:10vw;
+}
+	
+.copy02 h2{
+	font-size:6.5vw;
+}
+
+}
+
+.fadeRight{
+animation-name:fadeRightAnime;
+animation-duration:3s;
+animation-fill-mode:forwards;
+opacity:0;
+}
+
+
+
+
+.fadeIn{
+animation-name:fadeInAnime;
+animation-duration:1s;
+animation-fill-mode:forwards;
+opacity:0;
+animation-delay:0.5s;
+}
+
+
+
+.fadeRight2{
+animation-name:fadeRightAnime;
+animation-duration:3s;
+animation-fill-mode:forwards;
+opacity:0;
+animation-delay: 2s;
+}
+
+
+
+.fadeIn2{
+animation-name:fadeInAnime;
+animation-duration:1s;
+animation-fill-mode:forwards;
+opacity:0;
+animation-delay:2.5s;
+}
+
+
+
+/*追従メニュー*/
+.sub-menu{
+	width:2.5vw;
+	position:fixed;
+	right:0;
+	z-index:150;
+	top:8vh;
+}
+
+
+/*追従メニュースクロール表示----------------------------------*/
+
+@media screen and (max-width:770px) {
+
+.sub-menu{
+	display:flex;
+	position:fixed;
+	flex-direction:row;
+	bottom:0;
+	left:0;
+	top:auto;
+	z-index:5000;
+	width:100%;
+	box-shadow: 0 -1px 5px #8d554b;
+}
+	
+
+
+}
+
+@media screen and (max-width:770px) {
+
+.ScrollTop{
+	opacity: 0;
+	transition:0.65s;
+}
+
+.ScrollTop.isActive{
+	opacity:1;
+	transition:0.65s;
+}
+
+}
+
+
+
+.sub-botton01{
+	width:2.5vw;
+	height:10vw;
+	background-color:#bd6159;
+	writing-mode: vertical-rl;
+	color:white;
+	padding-top:0.5vw;
+	font-size:1.2vw;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	margin-bottom:1vw;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	transition:0.5s;
+}
+
+@media screen and (max-width:770px) {
+
+.sub-botton01{
+	width:40%;
+	height:15vw;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	padding:0;
+	margin:0;
+	writing-mode: horizontal-tb;
+}
+
+}
+
+.sub-botton01 a{
+	color:white;
+}
+
+@media screen and (max-width:770px) {
+
+.sub-botton01 a{
+	display:flex;
+	flex-direction:column-reverse;
+	align-items:center;
+	justify-content:center;
+	font-size:3vw;
+	font-weight:500;
+}
+
+}
+
+.sub-botton01 a{
+	width:100%;
+	height:100%;
+	display:block;
+}
+
+.banner-column{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	width:100%;
+	height:100%;
+}
+
+.sub-botton02 a{
+	width:100%;
+	height:100%;
+	display:block;
+}
+
+.banner-column2{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	width:100%;
+	height:100%;
+}
+
+@media screen and (max-width:770px) {
+
+.banner-column{
+	display:flex;
+	flex-direction:column-reverse;
+	align-items:center;
+	justify-content:center;
+}
+
+.banner-column2{
+	display:flex;
+	flex-direction:column-reverse;
+	align-items:center;
+	justify-content:center;
+}
+
+}
+
+.sub-botton02 a{
+	color:white;
+}
+
+@media screen and (max-width:770px) {
+
+.sub-botton02 a{
+	display:flex;
+	flex-direction:column-reverse;
+	align-items:center;
+	justify-content:center;
+	font-size:3vw;
+	font-weight:500;
+}
+
+}
+
+.sub-botton01 img{
+	margin-top:0.5vw;
+	width:1.5vw;
+}
+
+@media screen and (max-width:770px) {
+
+.sub-botton01 img{
+	width:auto;
+	height:5.5vw;
+}
+
+}
+
+.sub-botton02 img{
+	margin-top:0.5vw;
+	width:1.5vw;
+}
+
+@media screen and (max-width:770px) {
+
+.sub-botton02 img{
+	width:auto;
+	height:5.5vw;
+}
+
+}
+
+.sub-botton02{
+	width:2.5vw;
+	height:15vw;
+	background-color:#bd6159;
+	writing-mode: vertical-rl;
+	color:white;
+	font-size:1.2vw;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	margin-bottom:1vw;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	transition:0.5s;
+}
+
+@media screen and (max-width:770px) {
+
+.sub-botton02{
+	width:40%;
+	height:15vw;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	padding:0;
+	margin:0;
+	writing-mode: horizontal-tb;
+	border-left:solid 0.01vw #8d554b;
+}
+	
+
+
+
+}
+.top-back{
+	width:2.5vw;
+	height:2.5vw;
+	background-color:#67686e;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	transition:0.5s;
+}
+
+@media screen and (max-width:770px) {
+
+.top-back{
+	width:20%;
+	height:15vw;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
+
+}
+
+.top-back:hover{
+	background-color:#4d4d4d;
+	transition:0.5s;
+}
+
+.top-back img{
+	width:1.5vw;
+	height:1.5vw;
+	display:block;
+}
+
+@media screen and (max-width:770px) {
+
+.top-back img{
+	width:auto;
+	height:6vw;
+}
+
+}
+
+.top-back a{
+	display:block;
+	width:100%;
+	height:100%;
+	position:relative;
+}
+
+.top-back img{
+	position:absolute;
+	top:20%;
+	left:20%;
+}
+
+.sub-botton01:hover{
+	background-color:#ff8a74;
+	transition:0.5s;
+}
+
+.sub-botton02:hover{
+	background-color:#ff8a74;
+	transition:0.5s;
+}
+
+/*---------------------*/
+
+/*追従メニュー全体化------------------*/
+
+@media screen and (max-width:770px) {
+
+.banner-a03{
+	position:relative;
+	width:100%;
+	height:100%;
+}
+
+.banner-a03 img{
+	position:absolute;
+	top:30%;
+	left:35%;
+}
+	
+.banner-a02{
+	position:relative;
+	width:100%;
+	height:100%;
+}
+	
+.banner-a01{
+	position:relative;
+	width:100%;
+	height:100%;
+}
+
+}
+/*--------------------------------------*/
+
+
+.menu{
+	background-color:white;
+	width:100%;
+	height:4vw;
+	border-top: solid 0.3vw #bd6159;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
+.menu ul{
+	display:flex;
+	list-style:none;
+	justify-content:center;
+	align-items:center;
+	width:100%;
+	height:50%;
+}
+
+@media screen and (max-width:770px) {
+
+.menu{
+	display:none;
+}
+
+}
+
+.menu a{
+	color:#bd6159;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	font-weight:600;
+	font-size:1.1vw;
+	height:100%;
+	transition:0.5s;
+}
+
+.menu a:hover{
+	color:#ff8a74;
+	transition:0.5s;
+}
+
+.right-border{
+	margin-right:2vw;
+	padding-right:2vw;
+	border-right: 0.2vw solid #bd6159;
+}
+
+
+/*
+.open-botton a{
+  display: flex;
+  justify-content:space-around;;
+  align-items: center;
+  padding: 1em 2em;
+  width: 380px;
+  color: #333;
+  font-size: 18px;
+  font-weight: 700;
+  background-color: #ff8a74;
+  border-radius: 50vh;
+	height:30px;
+	z-index:100;
+}
+*/
+
+.open-botton a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  position: relative;
+  background: #ff8a74;
+  border: 1px solid #ff8a74;
+  border-radius: 30px;
+  box-sizing: border-box;
+  padding: 0 45px 0 25px;
+  color: #fff;
+  font-size: 1.7vw;
+  letter-spacing: 0.1em;
+  line-height: 1.3;
+  text-align: left;
+  text-decoration: none;
+  transition-duration: 0.5s;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	font-weight:500;
+}
+.open-botton a:before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border: 0;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  margin-top: -6px;
+}
+.open-botton a:hover {
+  background:rgba(255,255,255,0.35);
+  color: #ff8a74;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	font-weight:500;
+}
+.open-botton a:hover:before {
+  border-top: 2px solid #ff8a74;
+  border-right: 2px solid #ff8a74;
+}
+
+@media screen and (max-width:770px) {
+
+.open-botton a{
+	font-size:3.5vw;
+	height:10vw;
+	border-radius: 50px;
+}
+
+}
+
+
+
+
+.open01{
+	width:100%;
+	margin-top:20vw;
+	position:relative;
+	height:42.5vw;
+/*	background-image:url("../images/open-top01.png");
+	background-repeat:no-repeat;
+	background-position:right top;
+	background-size:cover;*/
+}
+
+@media screen and (max-width:770px) {
+
+.open01{
+	display:flex;
+	flex-direction:column-reverse;
+	position: relative;
+	height:auto;
+	margin-top:15vw;
+}
+
+}
+
+.open01-backimage{
+	position:absolute;
+	top:0;
+	right:0;
+	z-index:0;
+}
+
+@media screen and (max-width:770px) {
+
+.open01-backimage{
+	position:relative;
+}
+
+}
+
+.open01-backimage img{
+	height:42.5vw;
+}
+
+@media screen and (max-width:770px) {
+
+.open01-backimage img{
+	width:100%;
+	height:auto;
+}
+
+}
+
+.yoso-top{
+	margin-right:auto;
+	height:42.5vw;
+	width:30vw;
+	background-color:rgba(255,255,255,0.7);
+	padding-left:10vw;
+	padding-right:10vw;
+	text-align:justify;
+	position:relative;
+	z-index:100;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+}
+
+@media screen and (max-width:770px) {
+
+.yoso-top{
+	width:80vw;
+	height:auto;
+	background-color:rgba(255,255,255,0);
+	margin-top:10vw;
+	padding:0;
+	margin-right:auto;
+	margin-left:auto;
+}
+
+}
+
+.yoso-top h3{
+	width:100%;
+	font-size:1.25vw;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	color:#67686e;
+	margin-bottom:0.5vw;
+}
+
+@media screen and (max-width:770px) {
+
+.yoso-top h3{
+	font-size:2.5vw;
+}
+
+}
+
+.yoso-top h2{
+	width:100%;
+	font-size:2.25vw;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	color:#ff8a74;
+	margin-bottom:10%;
+	font-weight:700;
+}
+
+@media screen and (max-width:770px) {
+
+.yoso-top h2{
+	font-size:4vw;
+	margin-bottom:3vw;
+}
+
+}
+
+.yoso-top p{
+	width:100%;
+	color:#67686e;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	font-weight:400;
+	margin-bottom:15%;
+	font-size:1.25vw;
+	
+}
+
+@media screen and (max-width:770px) {
+
+.yoso-top p{
+	font-size:2.5vw;
+	margin-bottom:6vw;
+}
+
+}
+
+
+
+
+.open02{
+	width:100%;
+	margin-top:20vw;
+	position:relative;
+	height:42.5vw;
+}
+
+@media screen and (max-width:770px) {
+
+.open02{
+	margin-top:20vw;
+	height:auto;
+	position:relative;
+	display:flex;
+	flex-direction:column-reverse;
+}
+
+}
+
+.yoso{
+	margin-left:auto;
+	height:42.5vw;
+	width:30vw;
+	background-color:rgba(255,255,255,0.7);
+	padding-right:10vw;
+	padding-left:10vw;
+	text-align:justify;
+	position:absolute;
+	z-index:100;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	top:0;
+	right:0;
+}
+
+@media screen and (max-width:770px) {
+
+.yoso{
+	height:auto;
+	width:80vw;
+	background-color:rgba(255,255,255,0);
+	position:relative;
+	top:auto;
+	right:auto;
+	margin-top:10vw;
+}
+
+}
+
+.open-botton02 a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  position: relative;
+  background: #ff8a74;
+  border: 1px solid #ff8a74;
+  border-radius: 30px;
+  box-sizing: border-box;
+  padding: 0 45px 0 25px;
+  color: #fff;
+  font-size: 1.7vw;
+  letter-spacing: 0.1em;
+  line-height: 1.3;
+  text-align: left;
+  text-decoration: none;
+  transition-duration: 0.5s;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	font-weight:500;
+}
+.open-botton02  a:before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border: 0;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  margin-top: -6px;
+}
+.open-botton02 a:hover {
+  background:rgba(255,255,255,0.35);
+  color: #ff8a74;
+	
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	font-weight:500;
+}
+.open-botton02 a:hover:before {
+  border-top: 2px solid #ff8a74;
+  border-right: 2px solid #ff8a74;
+}
+
+@media screen and (max-width:770px) {
+
+.open-botton02 a{
+	font-size:3.5vw;
+	height:10vw;
+	border-radius: 50px;
+}
+
+}
+
+.open02-backimage{
+	position:absolute;
+	left:0;
+	top:0;
+}
+
+@media screen and (max-width:770px) {
+
+.open02-backimage{
+	position:relative;
+}
+
+}
+
+.open02-backimage img{
+	height:42.5vw;
+}
+
+@media screen and (max-width:770px) {
+
+.open02-backimage img{
+	height:auto;
+	width:100%;
+}
+
+}
+
+.yoso h3{
+	width:100%;
+	font-size:1.25vw;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	color:#67686e;
+	margin-bottom:0.5vw;
+}
+
+@media screen and (max-width:770px) {
+
+.yoso h3{
+	font-size:2.5vw;
+}
+
+}
+
+.yoso h2{
+	width:100%;
+	font-size:2.25vw;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	color:#ff8a74;
+	margin-bottom:10%;
+	font-weight:700;
+}
+
+@media screen and (max-width:770px) {
+
+.yoso h2{
+	font-size:4vw;
+	margin-bottom:3vw;
+}
+
+}
+
+.yoso p{
+	width:100%;
+	color:#67686e;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	font-weight:400;
+	margin-bottom:15%;
+	font-size:1.25vw;
+}
+
+@media screen and (max-width:770px) {
+
+.yoso p{
+	font-size:2.5vw;
+	margin-bottom:6vw;
+}
+
+}
+
+
+
+.open-botton02 p{
+	color:white;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	font-size:1.1rem;
+	font-weight:500;
+}
+
+
+
+
+
+.orange{
+	background-color:#ff8a74;
+	height:35vw;
+	width:auto;
+	display:flex;
+	justify-content:space-between;
+	padding-left:10vw;
+	padding-right:10vw;
+	align-items:center;
+}
+
+@media screen and (max-width:770px) {
+
+.orange{
+	display:grid;
+	padding:0;
+	background-color:rgba(255,255,255,0.00);
+	justify-content:inherit;
+}
+
+}
+
+.open03{
+	margin-top:20vw;
+	width:100%;
+}
+
+@media screen and (max-width:770px) {
+
+.open03{
+	height:140vw;
+}
+
+}
+
+.orange-mes h2{
+	color:white;
+	font-size:2.5vw;
+	font-weight:500;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	white-space: nowrap;
+}
+
+@media screen and (max-width:770px) {
+
+.orange-mes h2{
+	color:#ff8a74;
+	font-size:4vw;
+	font-weight:600;
+}
+
+}
+
+.imagebox01{
+	width:20vw;
+}
+
+@media screen and (max-width:770px) {
+
+.imagebox01{
+	display:flex;
+	flex-direction:column;
+	width:40vw;
+	margin-right:0;
+	margin-left:auto;
+}
+
+}
+
+.imagebox02{
+	width:20vw;
+}
+
+@media screen and (max-width:770px) {
+
+.imagebox02{
+	display:flex;
+	flex-direction:column;
+	width:40vw;
+
+}
+
+}
+
+.imagebox01 img{
+	width:100%;
+	height:auto;
+}
+
+.imagebox02 img{
+	width:100%;
+	height:auto;
+}
+
+
+.img-space{
+	margin-bottom:30px;
+}
+
+@media screen and (max-width:770px) {
+
+.img-space{
+	margin:0;
+}
+
+}
+
+.orange-mes{
+	width:30vw;
+	margin-right:5vw;
+	text-align:justify;
+}
+
+@media screen and (max-width:770px) {
+
+.orange-mes{
+	width:80vw;
+	grid-column:span 2;
+	grid-row:2;
+	margin-top:5vw;
+	padding-left:10vw;
+	margin-right:0;
+}
+
+}
+
+.orange-mess{
+	color:white;
+	font-size:1.2vw;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	width:100%;
+	margin-top:1.5vw;
+}
+
+@media screen and (max-width:770px) {
+
+.orange-mess{
+	color:#67686e;
+	font-size:2.5vw;
+	margin-top:2vw;
+	width:80vw;
+}
+
+}
+
+.small-mes{
+	color:white;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	font-size:1vw;
+	width:100%;
+	margin-top:1.5vw;
+}
+
+@media screen and (max-width:770px) {
+
+.small-mes{
+	color:#67686e;
+	font-size:2.5vw;
+	margin-top:2vw;
+	width:80vw;
+}
+
+}
+
+.course{
+	margin-top:200px;
+	display:flex;
+	flex-direction:column;
+}
+
+@media screen and (max-width:770px) {
+
+.course{
+	margin-top:20vw;
+}
+
+}
+
+.course img{
+	width:25vw;
+	height:auto;
+	margin-bottom:1vw;
+}
+
+@media screen and (max-width:770px) {
+
+.course img{
+	width:40vw;
+	height:auto;
+	margin-bottom:15px;
+}
+
+}
+
+.bar{
+	width:6vw;
+	height:0.25vw;
+	background-color:#ff8a74;
+}
+
+@media screen and (max-width:770px) {
+
+.bar{
+	width:8vw;
+}
+
+}
+
+.course-sub h3{
+	color:#ff8a74;
+	margin-right:10px;
+	margin-left:10px;
+	font-size:1.7vw;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+}
+
+@media screen and (max-width:770px) {
+
+.course-sub h3{
+	font-size:3vw;
+}
+
+}
+
+.course-sub{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	margin-top:-20px;
+}
+
+.course h2{
+	text-align:center;
+	
+}
+
+
+
+.course-box{
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	margin-top:10vw;
+}
+
+@media screen and (max-width:770px) {
+
+.course-box{
+	flex-direction:column-reverse;
+	justify-content:center;
+	align-items:center;
+	margin-top:15vw;
+}
+
+}
+
+.course-left h3{
+	color:#ff8a74;
+	font-size:2.5vw;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	
+}
+
+@media screen and (max-width:770px) {
+
+.course-left h3{
+	font-size:4vw;
+	
+}
+
+}
+
+.course-small{
+	font-size:1.1vw;
+	color:#ff8a74;
+	font-family: 'Noto Serif JP', serif;
+}
+
+@media screen and (max-width:770px) {
+
+.course-small{
+	font-size:2.5vw;
+}
+
+}
+
+.course-text{
+	font-size:1.1vw;
+	color:#67686e;
+	margin-top:20px;
+	margin-bottom:30px;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	width:100%;
+}
+
+@media screen and (max-width:770px) {
+
+.course-text{
+	font-size:2.5vw;
+}
+
+}
+
+.course-left{
+	width:30vw;
+	margin-right:5%;
+	text-align:justify;
+}
+
+@media screen and (max-width:770px) {
+
+.course-left{
+	width:80vw;
+	margin:0;
+	margin-top:3vw;
+}
+
+}
+
+.course-images img{
+	width:30vw;
+	height:auto;
+}
+
+@media screen and (max-width:770px) {
+
+.course-images img{
+	width:80vw;
+}
+
+}
+
+/*
+.course-botton p{
+	color:#ff8a74;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	font-size:1.1rem;
+	font-weight:500;
+}
+
+
+.course-botton a{
+	background-color:#f8f4f1;
+	height:30px;
+	align-items:center;
+	display: flex;
+	justify-content: space-around;
+	padding: 1em 2em;
+	width: 420px;
+	color: #ff8a74;
+	font-size: 18px;
+	font-weight: 700;
+	border-radius: 50vh;
+	border: solid 2px #ff8a74;
+}
+
+.course-botton img{
+	width:30px;
+	height:30px;
+}*/
+
+.course-botton a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  position: relative;
+  background: #f8f4f1;
+  border: 2px solid #ff8a74;
+  border-radius: 30px;
+  box-sizing: border-box;
+  padding: 0 45px 0 25px;
+  color: #ff8a74;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  line-height: 1.3;
+  text-align: left;
+  text-decoration: none;
+  transition-duration: 0.5s;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	font-weight:500;
+}
+.course-botton a:before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border: 0;
+  border-top: 2px solid #ff8a74;
+  border-right: 2px solid #ff8a74;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  margin-top: -6px;
+}
+.course-botton a:hover {
+  background: #ff8a74;
+  color: #f8f4f1;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	font-weight:500;
+}
+.course-botton a:hover:before {
+  border-top: 2px solid #f8f4f1;
+  border-right: 2px solid #f8f4f1;
+}
+
+@media screen and (max-width:770px) {
+
+.course-botton a{
+	font-size:3.5vw;
+	height:10vw;
+	border-radius: 50px;
+}
+
+}
+
+
+.bar2{
+	width:7.5vw;
+	height:0.25vw;
+	background-color:#ff8a74;
+}
+
+@media screen and (max-width:770px) {
+
+.bar2{
+	width:11vw;
+}
+
+}
+
+.news-sub h3{
+	color:#ff8a74;
+	margin-right:10px;
+	margin-left:10px;
+	font-size:1.7vw;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+}
+
+@media screen and (max-width:770px) {
+
+.news-sub h3{
+	font-size:3vw;
+}
+
+}
+
+.news-sub{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	margin-top:-20px;
+}
+
+.news h2{
+	text-align:center;
+	
+}
+
+.news{
+	margin-top:200px;
+	display:flex;
+	flex-direction:column;
+}
+
+.news img{
+	width:25vw;
+	height:auto;
+	margin-bottom:15px;
+}
+
+@media screen and (max-width:770px) {
+
+.news img{
+	width:40vw;
+	margin-bottom:2vw;
+}
+
+}
+
+.news-in{
+	width:100%;
+	margin:0 auto;
+	margin-top:50px;
+	margin-right:auto;
+	margin-left:auto;
+}
+
+@media screen and (max-width:770px) {
+
+.news-in{
+	width:80vw;
+}
+
+}
+
+.newsshort a{
+	display:flex;
+	padding-bottom:25px;
+	padding-top:25px;
+	align-items:center;
+	border-bottom: solid 2px #ff8a74;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	font-size:1.1vw;
+	font-weight:400;
+	color:#67686e;
+	transition:0.5s;
+}
+
+@media screen and (max-width:770px) {
+
+.newsshort a{
+	font-size:2.5vw;
+	padding-bottom:3vw;
+	padding-top:3vw;
+}
+
+}
+
+.newslong a{
+	padding-top:25px;
+	padding-bottom:25px;
+	display:flex;
+	align-items:center;
+	border-bottom: solid 2px #ff8a74;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	font-size:1.1vw;
+	font-weight:400;
+	color:#67686e;
+	transition:0.5s;
+}
+
+@media screen and (max-width:770px) {
+
+.newslong a{
+	font-size:2.5vw;
+	padding-bottom:3vw;
+	padding-top:3vw;
+}
+
+}
+
+.newslong img{
+	width:30px;
+	height:30px;
+	margin-right:1.5vw;
+	margin-left:auto;
+}
+
+@media screen and (max-width:770px) {
+
+.newslong img{
+	width:5vw;
+	height:5vw;
+	margin-right:3.5vw;
+}
+
+}
+
+.newsshort img{
+	widht:30px;
+	height:30px;
+	margin-right:2vw;
+	margin-left:auto;
+}
+
+@media screen and (max-width:770px) {
+
+.newsshort img{
+	width:5vw;
+	height:5vw;
+}
+
+}
+
+.newsshort p{
+	margin-right:30px;
+}
+
+.newslong p{
+	margin-right:30px;
+}
+
+.newsshort a:hover{
+	color:#ff8a74;
+	transition:0.5s;
+}
+
+.newslong a:hover{
+	color:#ff8a74;
+	transition:0.5s;
+}
+
+a.news-botton {
+	display: block;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	width: 70px;
+	margin: auto;
+	padding: 1rem 4rem;
+	font-weight: bold;
+	border: 2px solid #ff8a74;
+	color: #ff8a74;
+	border-radius: 100vh;
+	transition: 0.5s;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	margin-top:50px;
+}
+a.news-botton:hover {
+	color: #f8f4f1;
+	background: #ff8a74;
+	transition: 0.5s;
+}
+
+@media screen and (max-width:770px) {
+
+a.news-botton{
+	font-size:3.5vw;
+	width:50%;
+	height:10vw;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	padding:0;
+}
+
+}
+
+.index-footer{
+	display:flex;
+	background-color:#bd6159;
+	margin-top:10vw;
+	width:auto;
+	padding-top:3vw;
+	padding-bottom:3vw;
+	padding-left:5%;
+	padding-right:5%;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
+	align-items:flex-start;
+	justify-content:space-between;
+}
+
+@media screen and (max-width:770px) {
+
+.index-footer{
+	height:auto;
+	width:100%;
+	margin-top:20vw;
+	padding:5vw 0 5vw 0;
+	position:relative;
+}
+
+}
+
+.footer-ber{
+	height:15vw;
+	width:3px;
+	background-color:white;
+}
+
+@media screen and (max-width:770px) {
+
+.footer-ber{
+	display:none;
+}
+
+}
+
+.sns{
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+
+}
+
+@media screen and (max-width:770px) {
+
+.sns{
+	flex-direction:column;
+	justify-content:flex-end;
+	text-align:right;
+	width:auto;
+	/*height:75%;*/
+	position:absolute;
+	bottom:5vw;
+	right:0;
+	padding-right:10vw;
+}
+	
+.sns-space{
+	padding-bottom:3vw;
+}
+
+}
+
+.sns img{
+	margin-right:2vw;
+	width:40px;
+	height:40px;
+	transition:0.5s;
+}
+.sns img:hover{
+	opacity:0.7;
+	transition:0.5s;
+}
+
+@media screen and (max-width:770px) {
+
+.sns img{
+	margin-left:0;
+	margin-right:0;
+	width:5vw;
+	height:5vw;
+	transition:0.5s;
+}
+
+}
+/*
+.sns a:hover{
+	transform: rotateY( 360deg ) ;
+	transition:1s;
+	transform-origin:0% 0%;
+}*/
+
+.sns p{
+	color:white;
+	font-size:1vw;
+}
+
+@media screen and (max-width:770px) {
+
+.sns p{
+	display:none;
+}
+
+}
+
+
+.footer-botton p{
+	width:7vw;
+	white-space:nowrap;
+	font-size:1.5vw;
+	font-weight:600;
+}
+
+@media screen and (max-width:770px) {
+
+.footer-botton p{
+	width:20vw;
+	white-space:nowrap;
+	font-size:3vw;
+}
+
+}
+
+.footer-botton img{
+	width:2.5vw;
+	height:2.5vw;
+}
+
+@media screen and (max-width:770px) {
+
+.footer-botton img{
+	width:5vw;
+	height:5vw;
+}
+
+}
+
+.footer-botton a{
+	display:flex;
+	background-color:white;
+	height:4vw;
+	width:15vw;
+	align-items:center;
+	justify-content:space-around;
+	border-radius:1vw;
+	color:#bd6159;
+	font-weight:500;
+	font-size:1.15vw;
+	transition:0.5s;
+}
+
+@media screen and (max-width:770px) {
+
+.footer-botton a{
+	height:7.5vw;
+	width:30vw;
+	font-size:2.8vw;
+	font-weight:600;
+	white-space:nowrap;
+	padding-left:1vw;
+}
+
+}
+
+@media screen and (max-width:770px) {
+
+.footer-bottonspace{
+	margin-top:3vw;
+}
+
+}
+
+
+.footer-menu02 a{
+	color:white;
+	font-size:1.15vw;
+	font-weight:500;
+	transition: 0.5s;
+}
+
+
+
+.footer-menu03 a{
+	color:white;
+	font-size:1.15vw;
+	font-weight:500;
+	transition: 0.5s;
+}
+
+
+
+.footer-menu04 a{
+	color:white;
+	font-size:1.15vw;
+	font-weight:500;
+	transition: 0.5s;
+}
+
+
+
+.footer-menu01{
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
+	height:15vw;
+}
+
+@media screen and (max-width:770px) {
+
+.footer-menu01{
+	margin-left:10vw;
+	height:100%;
+	justify-content:space-evenly;
+}
+
+}
+
+.footer-menu02{
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
+	height:15vw;
+}
+
+@media screen and (max-width:770px) {
+
+.footer-menu02{
+	display:none;
+}
+
+}
+
+.footer-menu03{
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
+	height:15vw;
+}
+
+@media screen and (max-width:770px) {
+
+.footer-menu03{
+	display:none;
+}
+
+}
+
+.footer-menu04{
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
+	height:6vw;
+}
+
+@media screen and (max-width:770px) {
+
+.footer-menu04{
+	display:none;
+}
+
+}
+
+.footer-title{
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
+	height:15vw;
+	align-items:center;
+}
+
+@media screen and (max-width:770px) {
+
+.footer-title{
+	height:100%;
+	display:block;
+}
+
+}
+
+.title-logowhite{
+	width:23vw;
+	height:auto;
+}
+
+@media screen and (max-width:770px) {
+
+.title-logowhite{
+	display:none;
+}
+
+}
+
+.smallcopy{
+	background-color:#bd6159;
+	text-align:center;
+	width:auto;
+	color:white;
+	font-size:0.1vw;
+	font-weight:500;
+}
+
+@media screen and (max-width:770px) {
+
+.smallcopy{
+	padding-bottom:20vw;
+}
+
+}
+
+.footer-menu02 a:hover{
+	color:#ff8a74;
+	transition:0.5s;
+}
+
+.footer-menu03 a:hover{
+	color:#ff8a74;
+	transition:0.5s;
+}
+
+.footer-menu04 a:hover{
+	color:#ff8a74;
+	transition:0.5s;
+}
+
+.footer-botton a:hover{
+	background-color:rgba(255,255,255,0.7);
+	transition:0.5s;
+}
+
+/*両端の幅調整*/
+.side-space{
+	width:70vw;
+	margin:0 auto;
+}
+
+@media screen and (max-width:770px) {
+
+.side-space{
+	width:100%;
+}
+
+}
+
+
+
+
+
+
+	
+	
+	
+	
+
+
+
